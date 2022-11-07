@@ -9,8 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * Unit test for simple App.
  */
-@Tag("calculateTest")
-public class AppTest 
+public class AppTest
 {
     @Test
     public void whenGetAmountThenReturnAmountOTwoParameters() {
