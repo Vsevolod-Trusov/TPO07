@@ -1,10 +1,9 @@
 package org.example;
 
-import org.example.calculator.Calculator;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static junit.framework.Assert.assertEquals;
+
 
 /**
  * Unit test for simple App.
@@ -32,12 +31,79 @@ public class AppTest
     @Test
     public void whenGetQuotientThenReturnQuotientOTwoParameters() {
         Calculator calculator = new Calculator();
-        assertEquals(0.6666666666666666, calculator.getQuotient(2, 3));
+        assertEquals(0.6666666666666666, calculator.getQuotient(2, 3), 0.0000000000000001);
     }
 
     @Test
     public void whenGetRemainderThenReturnRemainderOTwoParameters() {
         Calculator calculator = new Calculator();
         assertEquals(2, calculator.getRemainder(2, 3));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void whenGetQuotientThenThrowException() {
+        Calculator calculator = new Calculator();
+        calculator.getQuotient(2, 0);
+    }
+
+
+    @Test(timeout = 1000)
+    public void whenGetTanThenReturnTanOfParameter() {
+        Calculator calculator = new Calculator();
+        assertEquals(0.0, calculator.getTan(0), 0.0000000000000001);
+    }
+
+    @Test
+    public void whenGetSinThenReturnSinOfParameter() {
+        Calculator calculator = new Calculator();
+        assertEquals(0.8939966636005579, calculator.getSin(90), 0.0000000000000001);
+    }
+
+    @Test
+    public void whenGetCosThenReturnCosOfParameter() {
+        Calculator calculator = new Calculator();
+        assertEquals(-0.4480736161291701, calculator.getCos(90), 0.0000000000000001);
+    }
+
+    @Test
+    public void whenGetCtgThenReturnCtgOfParameter() {
+        Calculator calculator = new Calculator();
+        assertEquals(-0.5012027833801532, calculator.getCtan(90), 0.0000000000000001);
+    }
+
+    @Test
+    public void whenGetArcsinThenReturnArcsinOfParameter() {
+        Calculator calculator = new Calculator();
+        assertEquals(1.5707963267948966, calculator.getArcsin(1), 0.0000000000000001);
+    }
+
+    @Test
+    public void whenGetArccosThenReturnArccosOfParameter() {
+        Calculator calculator = new Calculator();
+        assertEquals(0.0, calculator.getArccos(1), 0.0000000000000001);
+    }
+
+    @Test
+    public void whenGetArctanThenReturnArctanOfParameter() {
+        Calculator calculator = new Calculator();
+        assertEquals(0.7853981633974483, calculator.getArctan(1), 0.0000000000000001);
+    }
+
+    @Test
+    public void whenGetArccotanThenReturnArccotanOfParameter() {
+        Calculator calculator = new Calculator();
+        assertEquals(1.2732395447351628, calculator.getArccotan(1), 0.0000000000000001);
+    }
+
+    @Test
+    public void whenGetLogThenReturnLogOfParameter() {
+        Calculator calculator = new Calculator();
+        assertEquals(0.0, calculator.getLog(1), 0.0000000000000001);
+    }
+
+    @Test
+    public void whenGetLnThenReturnLnOfParameter() {
+        Calculator calculator = new Calculator();
+        assertEquals(0.0, calculator.getLn(1), 0.0000000000000001);
     }
 }
